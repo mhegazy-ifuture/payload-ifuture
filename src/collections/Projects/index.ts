@@ -4,6 +4,7 @@ import { CallToAction } from "../../blocks/CallToAction";
 import { Content } from "../../blocks/Content";
 import { MediaBlock } from "../../blocks/MediaBlock";
 import { Archive } from "../../blocks/ArchiveBlock";
+import { slugField } from "../../fields/slug";
 
 export const Projects: CollectionConfig = {
   slug: "projects",
@@ -17,22 +18,26 @@ export const Projects: CollectionConfig = {
   fields: [
     { name: "title", localized: true, type: "text", required: true },
     { name: "publishedAt", type: "date", admin: { position: "sidebar" } },
-    {type:'tabs' ,  tabs: [
+    {
+      type: "tabs",
+      tabs: [
         {
-          label: 'Hero',
+          label: "Hero",
           fields: [hero],
         },
         {
-          label: 'Content',
+          label: "Content",
           fields: [
             {
-              name: 'layout',
-              type: 'blocks',
+              name: "layout",
+              type: "blocks",
               required: true,
               blocks: [CallToAction, Content, MediaBlock, Archive],
             },
           ],
         },
-      ],}
+      ],
+    },
+    slugField()
   ],
 };

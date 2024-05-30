@@ -1,6 +1,5 @@
 import type { Block } from 'payload/types'
 
-import { invertBackground } from '../../fields/invertBackground'
 import linkGroup from '../../fields/linkGroup'
 import richText from '../../fields/richText'
 
@@ -11,7 +10,7 @@ export const CallToAction: Block = {
     plural: 'Calls to Action',
   },
   fields: [
-    invertBackground,
+  
     richText(),
     linkGroup({
       appearances: ['primary', 'secondary'],

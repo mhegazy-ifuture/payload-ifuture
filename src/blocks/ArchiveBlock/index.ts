@@ -52,16 +52,7 @@ export const Archive: Block = {
         },
       ],
     },
-    {
-      type: 'relationship',
-      name: 'categories',
-      label: 'Categories To Show',
-      relationTo: 'categories',
-      hasMany: true,
-      admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
-    },
+    
     {
       type: 'number',
       name: 'limit',

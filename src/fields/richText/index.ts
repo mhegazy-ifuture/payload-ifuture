@@ -6,10 +6,10 @@ import type {
 } from "@payloadcms/richtext-slate/dist/types";
 import type { RichTextField } from "payload/dist/fields/config/types";
 
-import deepMerge from "../../utilities/deepMerge";
-import link from "../link";
 import elements from "./elements";
 import leaves from "./leaves";
+import deepMerge from "../../utils/deepMerge";
+import link from "../link";
 
 type RichText = (
   overrides?: Partial<RichTextField> & { admin?: AdapterArguments["admin"] },

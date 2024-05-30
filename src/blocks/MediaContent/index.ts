@@ -1,5 +1,4 @@
 import { Block, Field } from "payload/types";
-import { invertBackground } from "../../fields/invertBackground";
 import richText from "../../fields/richText";
 import link from "../../fields/link";
 
@@ -41,7 +40,6 @@ const contentFields: Field[] = [
 export const MediaContent: Block = {
   slug: "mediaContent",
   fields: [
-    invertBackground,
     {
       name: "content",
       type: "array",
