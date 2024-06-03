@@ -6,6 +6,8 @@ import { Content } from './../../blocks/Content/index';
 import { CallToAction } from './../../blocks/CallToAction/index';
 import { CollectionConfig } from "payload/types";
 import { hero } from '../../fields/hero';
+import { anyone } from '../../access/anyone';
+import { admins } from '../../access/admins';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -15,6 +17,12 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
   
+  access: {
+    read: anyone,
+    update: admins,
+    create: admins,
+    delete: admins,
+  },
 
   
     versions: {

@@ -1,10 +1,13 @@
 import express from 'express'
 import payload from 'payload'
-
+import  * as allRouters from './modules/index.routes'
+import { connectDB } from './utils/connectDB'
+import cors from 'cors'
 require('dotenv').config()
 const app = express()
 
 
+app.use(cors())
 
 
 
@@ -24,8 +27,9 @@ const start = async () => {
   })
 
   // Add your own express routes here
-  console.log('hello');
-  
+  // console.log('hello');
+  connectDB()
+  app.use('/custom/pages',allRouters.pageRouter)
 
 
   app.listen(process.env.PORT || 3000)
