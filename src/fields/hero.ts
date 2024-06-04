@@ -45,10 +45,22 @@ export const hero: Field = {
         leaves: [],
       },
     }),
+    
     linkGroup({
       overrides: {
         maxRows: 2,
       },
     }),
+    {
+      maxDepth:3,
+      name: 'media',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
+      admin: {
+        // here to add heros with media field
+        condition: (_, { type } = {}) => ['homeHero', 'highImpact'].includes(type),
+      },
+    },
   ],
 };

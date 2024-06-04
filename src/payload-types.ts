@@ -71,6 +71,7 @@ export interface Project {
           id?: string | null;
         }[]
       | null;
+    media?: string | Media | null;
   };
   layout: (
     | {
@@ -212,6 +213,7 @@ export interface Page {
           id?: string | null;
         }[]
       | null;
+    media?: string | Media | null;
   };
   layout: (
     | {
@@ -411,6 +413,7 @@ export interface Post {
           id?: string | null;
         }[]
       | null;
+    media?: string | Media | null;
   };
   layout?:
     | (
@@ -563,6 +566,7 @@ export interface Service {
           id?: string | null;
         }[]
       | null;
+    media?: string | Media | null;
   };
   layout?:
     | (
