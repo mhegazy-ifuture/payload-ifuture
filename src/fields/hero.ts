@@ -52,7 +52,7 @@ export const hero: Field = {
       },
     }),
     {
-      maxDepth:3,
+      maxDepth:5,
       name: 'media',
       type: 'upload',
       relationTo: 'media',
