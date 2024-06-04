@@ -17,10 +17,6 @@ export const hero: Field = {
       defaultValue: "lowImpact",
       options: [
         {
-          label: "None",
-          value: "none",
-        },
-        {
           label: "High Impact",
           value: "highImpact",
         },
@@ -32,10 +28,6 @@ export const hero: Field = {
           label: "Low Impact",
           value: "lowImpact",
         },
-        {
-          label: "Home Hero",
-          value: "homeHero",
-        },
       ],
     },
     richText({
@@ -45,22 +37,21 @@ export const hero: Field = {
         leaves: [],
       },
     }),
-    
+
     linkGroup({
       overrides: {
         maxRows: 2,
       },
     }),
     {
-      
-      maxDepth:10,
-      name: 'media',
-      type: 'upload',
-      relationTo: 'media',
+      maxDepth: 10,
+      name: "media",
+      type: "upload",
+      relationTo: "media",
       required: false,
       admin: {
         // here to add heros with media field
-        condition: (_, { type } = {}) => ['homeHero', 'highImpact'].includes(type),
+        condition: (_, { type } = {}) => ["highImpact"].includes(type),
       },
     },
   ],

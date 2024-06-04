@@ -77,13 +77,14 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
       name: 'reference',
       label: 'Document to link to',
       type: 'relationship',
-      relationTo: ['pages'],
+      relationTo: ['pages' ,'media'],
       required: true,
       maxDepth: 1,
       admin: {
         condition: (_, siblingData) => siblingData?.type === 'reference',
       },
     },
+   
     {
       name: 'url',
       label: 'Custom URL',

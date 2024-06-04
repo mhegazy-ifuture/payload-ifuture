@@ -50,7 +50,7 @@ export interface Project {
   title: string;
   publishedAt?: string | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'homeHero';
+    type: 'highImpact' | 'mediumImpact' | 'lowImpact';
     richText: {
       [k: string]: unknown;
     }[];
@@ -59,10 +59,15 @@ export interface Project {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'media';
+                  value: string | Media;
+                } | null);
             url?: string | null;
             label: string;
             icon?: string | Media | null;
@@ -83,10 +88,15 @@ export interface Project {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'media';
+                      value: string | Media;
+                    } | null);
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
@@ -110,10 +120,15 @@ export interface Project {
               link?: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'media';
+                      value: string | Media;
+                    } | null);
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
@@ -192,7 +207,7 @@ export interface Page {
   title: string;
   publishedAt?: string | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'homeHero';
+    type: 'highImpact' | 'mediumImpact' | 'lowImpact';
     richText: {
       [k: string]: unknown;
     }[];
@@ -201,10 +216,15 @@ export interface Page {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'media';
+                  value: string | Media;
+                } | null);
             url?: string | null;
             label: string;
             icon?: string | Media | null;
@@ -225,10 +245,15 @@ export interface Page {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'media';
+                      value: string | Media;
+                    } | null);
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
@@ -252,10 +277,15 @@ export interface Page {
               link?: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'media';
+                      value: string | Media;
+                    } | null);
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
@@ -330,10 +360,15 @@ export interface Page {
               link?: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'media';
+                      value: string | Media;
+                    } | null);
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
@@ -392,7 +427,7 @@ export interface Post {
       }[]
     | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'homeHero';
+    type: 'highImpact' | 'mediumImpact' | 'lowImpact';
     richText: {
       [k: string]: unknown;
     }[];
@@ -401,10 +436,15 @@ export interface Post {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'media';
+                  value: string | Media;
+                } | null);
             url?: string | null;
             label: string;
             icon?: string | Media | null;
@@ -426,10 +466,15 @@ export interface Post {
                   link: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
-                    reference?: {
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
@@ -453,10 +498,15 @@ export interface Post {
                   link?: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
-                    reference?: {
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
@@ -545,7 +595,7 @@ export interface Service {
       }[]
     | null;
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact' | 'homeHero';
+    type: 'highImpact' | 'mediumImpact' | 'lowImpact';
     richText: {
       [k: string]: unknown;
     }[];
@@ -554,10 +604,15 @@ export interface Service {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'pages';
-              value: string | Page;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'media';
+                  value: string | Media;
+                } | null);
             url?: string | null;
             label: string;
             icon?: string | Media | null;
@@ -579,10 +634,15 @@ export interface Service {
                   link: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
-                    reference?: {
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
@@ -606,10 +666,15 @@ export interface Service {
                   link?: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
-                    reference?: {
-                      relationTo: 'pages';
-                      value: string | Page;
-                    } | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
@@ -726,10 +791,15 @@ export interface Header {
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'media';
+                value: string | Media;
+              } | null);
           url?: string | null;
           label: string;
           icon?: string | Media | null;
@@ -753,10 +823,15 @@ export interface Footer {
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'media';
+                value: string | Media;
+              } | null);
           url?: string | null;
           label: string;
           icon?: string | Media | null;
