@@ -56,7 +56,7 @@ export const Pages: CollectionConfig = {
               {
                 name: 'layout',
                 type: 'blocks',
-                required: true,
+                required:false,
                 blocks: [CallToAction, Content, MediaBlock, Archive ,MediaContent],
               },
             ],

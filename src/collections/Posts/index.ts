@@ -38,7 +38,13 @@ export const Posts: CollectionConfig = {
       type: "text",
       required: true,
     },
-
+    {
+      name: "media",
+      maxDepth: 5,
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
     {
       name: "publishedAt",
       type: "date",

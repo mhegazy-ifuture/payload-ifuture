@@ -5,6 +5,8 @@ import { Content } from "../../blocks/Content";
 import { MediaBlock } from "../../blocks/MediaBlock";
 import { Archive } from "../../blocks/ArchiveBlock";
 import { slugField } from "../../fields/slug";
+import { anyone } from "../../access/anyone";
+import { admins } from "../../access/admins";
 
 export const Projects: CollectionConfig = {
   slug: "projects",
@@ -12,12 +14,25 @@ export const Projects: CollectionConfig = {
     useAsTitle: "title",
     defaultColumns: ["title", "slug", "updatedAt"],
   },
+  access: {
+    read: anyone,
+    update: admins,
+    create: admins,
+    delete: admins,
+  },
   versions: {
     drafts: true,
   },
   fields: [
     { name: "title", localized: true, type: "text", required: true },
     { name: "publishedAt", type: "date", admin: { position: "sidebar" } },
+    {
+      name: "media",
+      maxDepth: 5,
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
     {
       type: "tabs",
       tabs: [

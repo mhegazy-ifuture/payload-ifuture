@@ -1,77 +1,90 @@
 /* eslint-disable simple-import-sort/imports */
-import type { CollectionConfig } from 'payload/types'
-import { Archive } from '../../blocks/ArchiveBlock'
-import { CallToAction } from '../../blocks/CallToAction'
-import { Content } from '../../blocks/Content'
-import { MediaBlock } from '../../blocks/MediaBlock'
-import { hero } from '../../fields/hero'
-import { slugField } from '../../fields/slug'
+import type { CollectionConfig } from "payload/types";
+import { Archive } from "../../blocks/ArchiveBlock";
+import { CallToAction } from "../../blocks/CallToAction";
+import { Content } from "../../blocks/Content";
+import { MediaBlock } from "../../blocks/MediaBlock";
+import { hero } from "../../fields/hero";
+import { slugField } from "../../fields/slug";
+import { anyone } from "../../access/anyone";
+import { admins } from "../../access/admins";
 
 export const Services: CollectionConfig = {
-  slug: 'services',
+  slug: "services",
   admin: {
-    useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', 'updatedAt'],
-   
+    useAsTitle: "title",
+    defaultColumns: ["title", "slug", "updatedAt"],
   },
- 
+  access: {
+    read: anyone,
+    update: admins,
+    create: admins,
+    delete: admins,
+  },
   versions: {
     drafts: true,
   },
-  
+
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      localized:true,
+      name: "title",
+      type: "text",
+      localized: true,
       required: true,
     },
-   
     {
-      name: 'projects',
-      type: 'relationship',
+      name: "media",
+      maxDepth: 5,
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
 
-      relationTo: 'projects',
+    {
+      name: "projects",
+      type: "relationship",
+      maxDepth: 2,
+      relationTo: "projects",
       hasMany: true,
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
       },
     },
     {
-      name: 'publishedAt',
-      type: 'date',
+      name: "publishedAt",
+      type: "date",
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
         date: {
-          pickerAppearance: 'dayAndTime',
+          pickerAppearance: "dayAndTime",
         },
       },
       hooks: {
         beforeChange: [
           ({ siblingData, value }) => {
-            if (siblingData._status === 'published' && !value) {
-              return new Date()
+            if (siblingData._status === "published" && !value) {
+              return new Date();
             }
-            return value
+            return value;
           },
         ],
       },
     },
     {
-      name: 'authors',
-      type: 'relationship',
-      relationTo: 'users',
+      name: "authors",
+      type: "relationship",
+      relationTo: "users",
       hasMany: true,
       admin: {
-        position: 'sidebar',
+        position: "sidebar",
       },
     },
     // This field is only used to populate the user data via the `populateAuthors` hook
     // This is because the `user` collection has access control locked to protect user privacy
     // GraphQL will also not return mutated user data that differs from the underlying schema
     {
-      name: 'populatedAuthors',
-      type: 'array',
+      name: "populatedAuthors",
+      type: "array",
       admin: {
         readOnly: true,
         disabled: true,
@@ -81,28 +94,28 @@ export const Services: CollectionConfig = {
       },
       fields: [
         {
-          name: 'id',
-          type: 'text',
+          name: "id",
+          type: "text",
         },
         {
-          name: 'name',
-          type: 'text',
+          name: "name",
+          type: "text",
         },
       ],
     },
     {
-      type: 'tabs',
+      type: "tabs",
       tabs: [
         {
-          label: 'Hero',
+          label: "Hero",
           fields: [hero],
         },
         {
-          label: 'Content',
+          label: "Content",
           fields: [
             {
-              name: 'layout',
-              type: 'blocks',
+              name: "layout",
+              type: "blocks",
               required: false,
               blocks: [CallToAction, Content, MediaBlock, Archive],
             },
@@ -111,19 +124,19 @@ export const Services: CollectionConfig = {
       ],
     },
     {
-      name: 'relatedServices',
-      type: 'relationship',
+      name: "relatedServices",
+      type: "relationship",
       required: false,
-      relationTo: 'services',
+      relationTo: "services",
       hasMany: true,
       filterOptions: ({ id }) => {
         return {
           id: {
             not_in: [id],
           },
-        }
+        };
       },
     },
     slugField(),
   ],
-}
+};

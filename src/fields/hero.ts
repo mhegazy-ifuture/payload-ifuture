@@ -51,7 +51,8 @@ export const hero: Field = {
       required: false,
       admin: {
         // here to add heros with media field
-        condition: (_, { type } = {}) => ["highImpact"].includes(type),
+        condition: (_, { type } = {}) =>
+          ["highImpact", "mediumImpact"].includes(type),
       },
     },
   ],
