@@ -85,16 +85,6 @@ export const Archive: Block = {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
       },
     },
-    {
-      type: 'number',
-      name: 'populatedDocsTotal',
-      label: 'Populated Docs Total',
-      admin: {
-        step: 1,
-        disabled: true,
-        description: 'This field is auto-populated after-read',
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
-    },
+    
   ],
 }

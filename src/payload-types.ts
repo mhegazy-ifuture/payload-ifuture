@@ -188,7 +188,6 @@ export interface Project {
                 }
             )[]
           | null;
-        populatedDocsTotal?: number | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'archive';
@@ -369,7 +368,6 @@ export interface Page {
                     }
                 )[]
               | null;
-            populatedDocsTotal?: number | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'archive';
@@ -569,7 +567,6 @@ export interface Post {
                     }
                 )[]
               | null;
-            populatedDocsTotal?: number | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'archive';
@@ -738,7 +735,6 @@ export interface Service {
                     }
                 )[]
               | null;
-            populatedDocsTotal?: number | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'archive';
