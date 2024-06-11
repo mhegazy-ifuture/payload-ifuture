@@ -13,7 +13,7 @@ const elements: RichTextElement[] = [
   'h6',
   'ul',
   'ol',
-  'link',
+  'link','textAlign','indent',
   largeBody,
   label,
 ]
