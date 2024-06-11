@@ -404,7 +404,7 @@ type Project {
   publishedAt: DateTime
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: Project_Media_where): Media
   hero: Project_Hero
-  layout: [Project_Layout!]!
+  layout: [Project_Layout!]
   slug: String
   updatedAt: DateTime
   createdAt: DateTime
@@ -4817,7 +4817,7 @@ type ProjectVersion_Version {
   publishedAt: DateTime
   media(locale: LocaleInputType, fallbackLocale: FallbackLocaleInputType, where: ProjectVersion_Version_Media_where): Media
   hero: ProjectVersion_Version_Hero
-  layout: [ProjectVersion_Version_Layout!]!
+  layout: [ProjectVersion_Version_Layout!]
   slug: String
   updatedAt: DateTime
   createdAt: DateTime

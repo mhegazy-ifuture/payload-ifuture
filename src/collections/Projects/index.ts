@@ -46,13 +46,13 @@ export const Projects: CollectionConfig = {
             {
               name: "layout",
               type: "blocks",
-              required: true,
+              required: false,
               blocks: [CallToAction, Content, MediaBlock, Archive],
             },
           ],
         },
       ],
     },
-    slugField()
+    slugField(),
   ],
 };
