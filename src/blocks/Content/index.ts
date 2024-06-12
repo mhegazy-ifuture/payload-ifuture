@@ -25,6 +25,10 @@ const columnFields: Field[] = [
         value: 'full',
         label: 'Full',
       },
+      {
+        value: 'full-wrapped',
+        label: 'Full Wrapped',
+      },
     ],
   },
   richText(),

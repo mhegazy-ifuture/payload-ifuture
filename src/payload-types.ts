@@ -114,7 +114,7 @@ export interface Project {
         | {
             columns?:
               | {
-                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full' | 'full-wrapped') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];
@@ -295,7 +295,7 @@ export interface Page {
         | {
             columns?:
               | {
-                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full' | 'full-wrapped') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];
@@ -494,7 +494,7 @@ export interface Post {
         | {
             columns?:
               | {
-                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full' | 'full-wrapped') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];
@@ -662,7 +662,7 @@ export interface Service {
         | {
             columns?:
               | {
-                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full' | 'full-wrapped') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];
