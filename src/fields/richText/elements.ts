@@ -2,6 +2,7 @@ import type { RichTextElement } from '@payloadcms/richtext-slate/dist/types'
 
 import label from './label'
 import largeBody from './largeBody'
+import breackLine from './LineBreak'
 
 const elements: RichTextElement[] = [
   'blockquote',
@@ -13,8 +14,10 @@ const elements: RichTextElement[] = [
   'h6',
   'ul',
   'ol',
+
   'link','textAlign','indent',
   largeBody,
+  breackLine,
   label,
 ]
 

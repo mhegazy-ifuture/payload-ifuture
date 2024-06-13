@@ -40,6 +40,7 @@ const richText: RichText = (
               name: "caption",
               label: "Caption",
               editor: slateEditor({
+                
                 admin: {
                   elements: [...elements],
                   leaves: [...leaves],
@@ -74,6 +75,7 @@ const richText: RichText = (
               localized: true,
               label: "Enable Link",
             },
+            
             link({
               appearances: false,
               disableLabel: true,
