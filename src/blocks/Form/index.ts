@@ -10,7 +10,7 @@ export const FormBlock: Block = {
   },
   fields: [
     {
-      name: "enableIntro",
+      name: "enableIntroContent",
       label: "Enable Intro Content",
       type: "checkbox",
     },
@@ -18,7 +18,7 @@ export const FormBlock: Block = {
       name: "introContent",
       label: "Intro Content",
       admin: {
-        condition: (_, { enableIntro }) => Boolean(enableIntro),
+        condition: (_, { enableIntroContent }) => Boolean(enableIntroContent),
       },
     }),
     {

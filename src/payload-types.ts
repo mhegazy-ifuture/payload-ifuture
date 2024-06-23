@@ -293,7 +293,7 @@ export interface Page {
             blockType: 'cta';
           }
         | {
-            enableIntro?: boolean | null;
+            enableIntroContent?: boolean | null;
             introContent: {
               [k: string]: unknown;
             }[];
