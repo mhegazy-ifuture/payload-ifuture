@@ -293,6 +293,24 @@ export interface Page {
             blockType: 'cta';
           }
         | {
+            enableIntro?: boolean | null;
+            introContent: {
+              [k: string]: unknown;
+            }[];
+            enableContactInfo?: boolean | null;
+            contactCards?:
+              | {
+                  type?: ('mail' | 'tel' | 'location') | null;
+                  icon: string | Media;
+                  contactInfo: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formBlock';
+          }
+        | {
             columns?:
               | {
                   size?: ('oneThird' | 'half' | 'twoThirds' | 'full' | 'full-wrapped') | null;

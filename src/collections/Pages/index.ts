@@ -8,6 +8,7 @@ import { CollectionConfig } from "payload/types";
 import { hero } from '../../fields/hero';
 import { anyone } from '../../access/anyone';
 import { admins } from '../../access/admins';
+import { FormBlock } from '../../blocks/Form';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -57,7 +58,7 @@ export const Pages: CollectionConfig = {
                 name: 'layout',
                 type: 'blocks',
                 required:false,
-                blocks: [CallToAction, Content, MediaBlock, Archive ,MediaContent],
+                blocks: [CallToAction, FormBlock,Content, MediaBlock, Archive ,MediaContent],
               },
             ],
           },
