@@ -10,6 +10,9 @@ export const appearanceOptions = {
   secondary: {
     label: 'Secondary Button',
     value: 'secondary',
+  }, teritary: {
+    label: 'teritary Button',
+    value: 'teritary',
   },
   default: {
     label: 'Default',
@@ -17,7 +20,7 @@ export const appearanceOptions = {
   },
 }
 
-export type LinkAppearances = 'primary' | 'secondary' | 'default'
+export type LinkAppearances = 'primary' | 'secondary' |'teritary'| 'default'
 
 type LinkType = (options?: {
   appearances?: LinkAppearances[] | false
@@ -136,6 +139,7 @@ const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = 
       appearanceOptions.default,
       appearanceOptions.primary,
       appearanceOptions.secondary,
+      appearanceOptions.teritary,
     ]
 
     if (appearances) {

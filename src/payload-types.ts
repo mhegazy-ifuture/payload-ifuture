@@ -72,7 +72,7 @@ export interface Project {
             url?: string | null;
             label: string;
             icon?: string | Media | null;
-            appearance?: ('default' | 'primary' | 'secondary') | null;
+            appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
           };
           id?: string | null;
         }[]
@@ -134,7 +134,7 @@ export interface Project {
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
-                    appearance?: ('default' | 'primary' | 'secondary') | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
                   id?: string | null;
                 }[]
@@ -253,7 +253,7 @@ export interface Page {
             url?: string | null;
             label: string;
             icon?: string | Media | null;
-            appearance?: ('default' | 'primary' | 'secondary') | null;
+            appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
           };
           id?: string | null;
         }[]
@@ -315,7 +315,7 @@ export interface Page {
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
-                    appearance?: ('default' | 'primary' | 'secondary') | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
                   id?: string | null;
                 }[]
@@ -397,7 +397,7 @@ export interface Page {
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
-                    appearance?: ('default' | 'primary' | 'secondary') | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
                   id?: string | null;
                 }[]
@@ -452,7 +452,7 @@ export interface Post {
             url?: string | null;
             label: string;
             icon?: string | Media | null;
-            appearance?: ('default' | 'primary' | 'secondary') | null;
+            appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
           };
           id?: string | null;
         }[]
@@ -514,7 +514,7 @@ export interface Post {
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
-                    appearance?: ('default' | 'primary' | 'secondary') | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
                   id?: string | null;
                 }[]
@@ -620,7 +620,7 @@ export interface Service {
             url?: string | null;
             label: string;
             icon?: string | Media | null;
-            appearance?: ('default' | 'primary' | 'secondary') | null;
+            appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
           };
           id?: string | null;
         }[]
@@ -682,7 +682,7 @@ export interface Service {
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
-                    appearance?: ('default' | 'primary' | 'secondary') | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
                   id?: string | null;
                 }[]
