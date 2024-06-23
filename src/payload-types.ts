@@ -300,7 +300,7 @@ export interface Page {
             enableContactInfo?: boolean | null;
             contactCards?:
               | {
-                  type?: ('mail' | 'tel' | 'location') | null;
+                  type?: ('mail' | 'phone' | 'location') | null;
                   icon: string | Media;
                   contactInfo: string;
                   id?: string | null;

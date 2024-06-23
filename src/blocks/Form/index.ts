@@ -39,9 +39,9 @@ export const FormBlock: Block = {
           name: "type",
           type: "select",
           options: [
-            { label: "Mail", value: "mail" },
-            { label: "Phone", value: "tel" },
-            { label: "Office", value: "location" },
+            { label: "mail", value: "mail" },
+            { label: "phone", value: "phone" },
+            { label: "location", value: "location" },
           ],
         },
         {
