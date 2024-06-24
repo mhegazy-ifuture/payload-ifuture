@@ -301,6 +301,8 @@ export interface Page {
             contactCards?:
               | {
                   type?: ('mail' | 'phone' | 'location') | null;
+                  title: string;
+                  subtext?: string | null;
                   icon: string | Media;
                   contactInfo: string;
                   id?: string | null;

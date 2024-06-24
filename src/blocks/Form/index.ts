@@ -39,10 +39,24 @@ export const FormBlock: Block = {
           name: "type",
           type: "select",
           options: [
-            { label: "mail", value: "mail" },
-            { label: "phone", value: "phone" },
-            { label: "location", value: "location" },
+            { label: "Mail", value: "mail" },
+            { label: "Phone", value: "phone" },
+            { label: "Location", value: "location" },
           ],
+        },
+        {
+          name: "title",
+          label: "Title",
+          type: "text",
+          localized: true,
+          required: true,
+        },
+        {
+          name: "subtext",
+          label: "Subtext",
+          type: "text",
+          localized: true,
+          required: false,
         },
         {
           name: "icon",
@@ -55,11 +69,10 @@ export const FormBlock: Block = {
           name: "contactInfo",
           label: "Contact Info",
           type: "text",
-          localized:true,
+          localized: true,
           required: true,
         },
       ],
     },
-   
   ],
 };
