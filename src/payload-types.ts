@@ -839,7 +839,6 @@ export interface Header {
  */
 export interface Footer {
   id: string;
-  slogan: string;
   copyright: string;
   navItems?:
     | {

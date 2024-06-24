@@ -8,13 +8,13 @@ export const Footer: GlobalConfig = {
     read: () => true,
   },
   fields: [
-    {
-      localized:true,
-      name: 'slogan',
-      label: 'Slogan',
-      type: 'text',
-      required: true,
-    },
+    // {
+    //   localized:true,
+    //   name: 'slogan',
+    //   label: 'Slogan',
+    //   type: 'text',
+    //   required: true,
+    // },
     {
       name: 'copyright',
       localized:true,
@@ -25,6 +25,7 @@ export const Footer: GlobalConfig = {
     {
       name: 'navItems',
       type: 'array',
+      localized:true,
       maxRows: 6,
       fields: [
         link({
