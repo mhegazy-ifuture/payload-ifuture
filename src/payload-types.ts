@@ -826,6 +826,7 @@ export interface Header {
           url?: string | null;
           label: string;
           icon?: string | Media | null;
+          appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
         };
         id?: string | null;
       }[]

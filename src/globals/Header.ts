@@ -15,7 +15,7 @@ export const Header: GlobalConfig = {
       maxRows: 6,
       fields: [
         link({
-          appearances: false,
+          
         }),
       ],
     },
