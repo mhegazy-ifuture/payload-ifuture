@@ -395,6 +395,7 @@ export interface Page {
             blockType: 'archive';
           }
         | {
+            apperance?: ('horizontal' | 'vertical') | null;
             content?:
               | {
                   size?: ('oneThird' | 'twoThirds' | 'full') | null;

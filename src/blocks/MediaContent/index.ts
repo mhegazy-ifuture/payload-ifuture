@@ -41,6 +41,22 @@ export const MediaContent: Block = {
   slug: "mediaContent",
   fields: [
     {
+      name: "apperance",
+      type: "radio",
+      defaultValue:'vertical',
+      options: [
+        {
+          label: "Horizontal",
+          value: "horizontal",
+        },
+        {
+          label: "Vertical",
+          value: "vertical",
+        },
+      ],
+    },
+
+    {
       name: "content",
       type: "array",
       fields: contentFields,
