@@ -7,6 +7,9 @@ import { hero } from "../../fields/hero";
 import { slugField } from "../../fields/slug";
 import { admins } from "../../access/admins";
 import { anyone } from "../../access/anyone";
+import { cardsContent } from "../../blocks/CardsContent";
+import { FormBlock } from "../../blocks/Form";
+import { MediaContent } from "../../blocks/MediaContent";
 
 export const Posts: CollectionConfig = {
   slug: "posts",
@@ -112,7 +115,15 @@ export const Posts: CollectionConfig = {
               name: "layout",
               type: "blocks",
               required: false,
-              blocks: [CallToAction, Content, MediaBlock, Archive],
+              blocks: [
+                cardsContent,
+                FormBlock,
+                Content,
+                MediaBlock,
+                Archive,
+                CallToAction,
+                MediaContent,
+              ],
             },
           ],
         },

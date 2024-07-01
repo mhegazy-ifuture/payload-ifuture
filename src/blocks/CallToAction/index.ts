@@ -13,7 +13,6 @@ export const CallToAction: Block = {
   
     richText(),
     linkGroup({
-      appearances: ['primary', 'secondary'],
       overrides: {
         maxRows: 2,
       },

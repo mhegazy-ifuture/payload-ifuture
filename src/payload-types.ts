@@ -82,39 +82,10 @@ export interface Project {
   layout?:
     | (
         | {
-            richText: {
-              [k: string]: unknown;
-            }[];
-            links?:
-              | {
-                  link: {
-                    type?: ('reference' | 'custom') | null;
-                    newTab?: boolean | null;
-                    reference?:
-                      | ({
-                          relationTo: 'pages';
-                          value: string | Page;
-                        } | null)
-                      | ({
-                          relationTo: 'media';
-                          value: string | Media;
-                        } | null);
-                    url?: string | null;
-                    label: string;
-                    icon?: string | Media | null;
-                    appearance?: ('primary' | 'secondary') | null;
-                  };
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'cta';
-          }
-        | {
             columns?:
               | {
-                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full' | 'full-wrapped') | null;
+                  size?: ('oneThird' | 'twoThirds') | null;
+                  media: string | Media;
                   richText: {
                     [k: string]: unknown;
                   }[];
@@ -136,161 +107,29 @@ export interface Project {
                     icon?: string | Media | null;
                     appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
+                  populateBy?: 'selection' | null;
+                  selectedDocs?:
+                    | (
+                        | {
+                            relationTo: 'posts';
+                            value: string | Post;
+                          }
+                        | {
+                            relationTo: 'projects';
+                            value: string | Project;
+                          }
+                        | {
+                            relationTo: 'services';
+                            value: string | Service;
+                          }
+                      )[]
+                    | null;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'content';
-          }
-        | {
-            position?: ('default' | 'fullscreen') | null;
-            media: string | Media;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'mediaBlock';
-          }
-        | {
-            introContent: {
-              [k: string]: unknown;
-            }[];
-            populateBy?: ('collection' | 'selection') | null;
-            relationTo?: ('posts' | 'projects' | 'services') | null;
-            limit?: number | null;
-            selectedDocs?:
-              | (
-                  | {
-                      relationTo: 'posts';
-                      value: string | Post;
-                    }
-                  | {
-                      relationTo: 'projects';
-                      value: string | Project;
-                    }
-                  | {
-                      relationTo: 'services';
-                      value: string | Service;
-                    }
-                )[]
-              | null;
-            populatedDocs?:
-              | (
-                  | {
-                      relationTo: 'posts';
-                      value: string | Post;
-                    }
-                  | {
-                      relationTo: 'projects';
-                      value: string | Project;
-                    }
-                  | {
-                      relationTo: 'services';
-                      value: string | Service;
-                    }
-                )[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'archive';
-          }
-      )[]
-    | null;
-  slug?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  alt: string;
-  caption?:
-    | {
-        [k: string]: unknown;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: string;
-  title: string;
-  publishedAt?: string | null;
-  hero: {
-    type: 'highImpact' | 'mediumImpact' | 'lowImpact';
-    richText: {
-      [k: string]: unknown;
-    }[];
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'media';
-                  value: string | Media;
-                } | null);
-            url?: string | null;
-            label: string;
-            icon?: string | Media | null;
-            appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    media?: string | Media | null;
-  };
-  layout?:
-    | (
-        | {
-            richText: {
-              [k: string]: unknown;
-            }[];
-            links?:
-              | {
-                  link: {
-                    type?: ('reference' | 'custom') | null;
-                    newTab?: boolean | null;
-                    reference?:
-                      | ({
-                          relationTo: 'pages';
-                          value: string | Page;
-                        } | null)
-                      | ({
-                          relationTo: 'media';
-                          value: string | Media;
-                        } | null);
-                    url?: string | null;
-                    label: string;
-                    icon?: string | Media | null;
-                    appearance?: ('primary' | 'secondary') | null;
-                  };
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'cta';
+            blockType: 'cardsContent';
           }
         | {
             enableIntroContent?: boolean | null;
@@ -395,6 +234,321 @@ export interface Page {
             blockType: 'archive';
           }
         | {
+            richText: {
+              [k: string]: unknown;
+            }[];
+            links?:
+              | {
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta';
+          }
+        | {
+            apperance?: ('horizontal' | 'vertical') | null;
+            content?:
+              | {
+                  size?: ('oneThird' | 'twoThirds' | 'full') | null;
+                  richText: {
+                    [k: string]: unknown;
+                  }[];
+                  enableLink?: boolean | null;
+                  link?: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            media: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'mediaContent';
+          }
+      )[]
+    | null;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  alt: string;
+  caption?:
+    | {
+        [k: string]: unknown;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  title: string;
+  publishedAt?: string | null;
+  hero: {
+    type: 'highImpact' | 'mediumImpact' | 'lowImpact';
+    richText: {
+      [k: string]: unknown;
+    }[];
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'media';
+                  value: string | Media;
+                } | null);
+            url?: string | null;
+            label: string;
+            icon?: string | Media | null;
+            appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    media?: string | Media | null;
+  };
+  layout?:
+    | (
+        | {
+            columns?:
+              | {
+                  size?: ('oneThird' | 'twoThirds') | null;
+                  media: string | Media;
+                  richText: {
+                    [k: string]: unknown;
+                  }[];
+                  enableLink?: boolean | null;
+                  link?: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  populateBy?: 'selection' | null;
+                  selectedDocs?:
+                    | (
+                        | {
+                            relationTo: 'posts';
+                            value: string | Post;
+                          }
+                        | {
+                            relationTo: 'projects';
+                            value: string | Project;
+                          }
+                        | {
+                            relationTo: 'services';
+                            value: string | Service;
+                          }
+                      )[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cardsContent';
+          }
+        | {
+            enableIntroContent?: boolean | null;
+            introContent: {
+              [k: string]: unknown;
+            }[];
+            enableContactInfo?: boolean | null;
+            contactCards?:
+              | {
+                  type?: ('mail' | 'phone' | 'location') | null;
+                  title: string;
+                  subtext?: string | null;
+                  icon: string | Media;
+                  contactInfo: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formBlock';
+          }
+        | {
+            columns?:
+              | {
+                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full' | 'full-wrapped') | null;
+                  richText: {
+                    [k: string]: unknown;
+                  }[];
+                  enableLink?: boolean | null;
+                  link?: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'content';
+          }
+        | {
+            position?: ('default' | 'fullscreen') | null;
+            media: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'mediaBlock';
+          }
+        | {
+            introContent: {
+              [k: string]: unknown;
+            }[];
+            populateBy?: ('collection' | 'selection') | null;
+            relationTo?: ('posts' | 'projects' | 'services') | null;
+            limit?: number | null;
+            selectedDocs?:
+              | (
+                  | {
+                      relationTo: 'posts';
+                      value: string | Post;
+                    }
+                  | {
+                      relationTo: 'projects';
+                      value: string | Project;
+                    }
+                  | {
+                      relationTo: 'services';
+                      value: string | Service;
+                    }
+                )[]
+              | null;
+            populatedDocs?:
+              | (
+                  | {
+                      relationTo: 'posts';
+                      value: string | Post;
+                    }
+                  | {
+                      relationTo: 'projects';
+                      value: string | Project;
+                    }
+                  | {
+                      relationTo: 'services';
+                      value: string | Service;
+                    }
+                )[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'archive';
+          }
+        | {
+            richText: {
+              [k: string]: unknown;
+            }[];
+            links?:
+              | {
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta';
+          }
+        | {
             apperance?: ('horizontal' | 'vertical') | null;
             content?:
               | {
@@ -483,12 +637,15 @@ export interface Post {
   layout?:
     | (
         | {
-            richText: {
-              [k: string]: unknown;
-            }[];
-            links?:
+            columns?:
               | {
-                  link: {
+                  size?: ('oneThird' | 'twoThirds') | null;
+                  media: string | Media;
+                  richText: {
+                    [k: string]: unknown;
+                  }[];
+                  enableLink?: boolean | null;
+                  link?: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
                     reference?:
@@ -503,14 +660,51 @@ export interface Post {
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
-                    appearance?: ('primary' | 'secondary') | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
+                  populateBy?: 'selection' | null;
+                  selectedDocs?:
+                    | (
+                        | {
+                            relationTo: 'posts';
+                            value: string | Post;
+                          }
+                        | {
+                            relationTo: 'projects';
+                            value: string | Project;
+                          }
+                        | {
+                            relationTo: 'services';
+                            value: string | Service;
+                          }
+                      )[]
+                    | null;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'cta';
+            blockType: 'cardsContent';
+          }
+        | {
+            enableIntroContent?: boolean | null;
+            introContent: {
+              [k: string]: unknown;
+            }[];
+            enableContactInfo?: boolean | null;
+            contactCards?:
+              | {
+                  type?: ('mail' | 'phone' | 'location') | null;
+                  title: string;
+                  subtext?: string | null;
+                  icon: string | Media;
+                  contactInfo: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formBlock';
           }
         | {
             columns?:
@@ -593,6 +787,70 @@ export interface Post {
             id?: string | null;
             blockName?: string | null;
             blockType: 'archive';
+          }
+        | {
+            richText: {
+              [k: string]: unknown;
+            }[];
+            links?:
+              | {
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta';
+          }
+        | {
+            apperance?: ('horizontal' | 'vertical') | null;
+            content?:
+              | {
+                  size?: ('oneThird' | 'twoThirds' | 'full') | null;
+                  richText: {
+                    [k: string]: unknown;
+                  }[];
+                  enableLink?: boolean | null;
+                  link?: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            media: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'mediaContent';
           }
       )[]
     | null;
@@ -651,12 +909,15 @@ export interface Service {
   layout?:
     | (
         | {
-            richText: {
-              [k: string]: unknown;
-            }[];
-            links?:
+            columns?:
               | {
-                  link: {
+                  size?: ('oneThird' | 'twoThirds') | null;
+                  media: string | Media;
+                  richText: {
+                    [k: string]: unknown;
+                  }[];
+                  enableLink?: boolean | null;
+                  link?: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
                     reference?:
@@ -671,14 +932,51 @@ export interface Service {
                     url?: string | null;
                     label: string;
                     icon?: string | Media | null;
-                    appearance?: ('primary' | 'secondary') | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
                   };
+                  populateBy?: 'selection' | null;
+                  selectedDocs?:
+                    | (
+                        | {
+                            relationTo: 'posts';
+                            value: string | Post;
+                          }
+                        | {
+                            relationTo: 'projects';
+                            value: string | Project;
+                          }
+                        | {
+                            relationTo: 'services';
+                            value: string | Service;
+                          }
+                      )[]
+                    | null;
                   id?: string | null;
                 }[]
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'cta';
+            blockType: 'cardsContent';
+          }
+        | {
+            enableIntroContent?: boolean | null;
+            introContent: {
+              [k: string]: unknown;
+            }[];
+            enableContactInfo?: boolean | null;
+            contactCards?:
+              | {
+                  type?: ('mail' | 'phone' | 'location') | null;
+                  title: string;
+                  subtext?: string | null;
+                  icon: string | Media;
+                  contactInfo: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'formBlock';
           }
         | {
             columns?:
@@ -761,6 +1059,70 @@ export interface Service {
             id?: string | null;
             blockName?: string | null;
             blockType: 'archive';
+          }
+        | {
+            richText: {
+              [k: string]: unknown;
+            }[];
+            links?:
+              | {
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta';
+          }
+        | {
+            apperance?: ('horizontal' | 'vertical') | null;
+            content?:
+              | {
+                  size?: ('oneThird' | 'twoThirds' | 'full') | null;
+                  richText: {
+                    [k: string]: unknown;
+                  }[];
+                  enableLink?: boolean | null;
+                  link?: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | ({
+                          relationTo: 'pages';
+                          value: string | Page;
+                        } | null)
+                      | ({
+                          relationTo: 'media';
+                          value: string | Media;
+                        } | null);
+                    url?: string | null;
+                    label: string;
+                    icon?: string | Media | null;
+                    appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            media: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'mediaContent';
           }
       )[]
     | null;

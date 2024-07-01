@@ -7,6 +7,9 @@ import { Archive } from "../../blocks/ArchiveBlock";
 import { slugField } from "../../fields/slug";
 import { anyone } from "../../access/anyone";
 import { admins } from "../../access/admins";
+import { cardsContent } from "../../blocks/CardsContent";
+import { FormBlock } from "../../blocks/Form";
+import { MediaContent } from "../../blocks/MediaContent";
 
 export const Projects: CollectionConfig = {
   slug: "projects",
@@ -47,7 +50,13 @@ export const Projects: CollectionConfig = {
               name: "layout",
               type: "blocks",
               required: false,
-              blocks: [CallToAction, Content, MediaBlock, Archive],
+              blocks: [cardsContent,
+                FormBlock,
+                Content,
+                MediaBlock,
+                Archive,
+                CallToAction,
+                MediaContent,],
             },
           ],
         },

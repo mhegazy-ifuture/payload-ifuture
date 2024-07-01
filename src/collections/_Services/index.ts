@@ -8,6 +8,9 @@ import { hero } from "../../fields/hero";
 import { slugField } from "../../fields/slug";
 import { anyone } from "../../access/anyone";
 import { admins } from "../../access/admins";
+import { FormBlock } from "../../blocks/Form";
+import { cardsContent } from "../../blocks/CardsContent";
+import { MediaContent } from "../../blocks/MediaContent";
 
 export const Services: CollectionConfig = {
   slug: "services",
@@ -117,7 +120,13 @@ export const Services: CollectionConfig = {
               name: "layout",
               type: "blocks",
               required: false,
-              blocks: [CallToAction, Content, MediaBlock, Archive],
+              blocks: [cardsContent,
+                FormBlock,
+                Content,
+                MediaBlock,
+                Archive,
+                CallToAction,
+                MediaContent,],
             },
           ],
         },
