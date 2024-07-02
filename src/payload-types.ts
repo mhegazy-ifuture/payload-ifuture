@@ -138,6 +138,30 @@ export interface Page {
             introContent: {
               [k: string]: unknown;
             }[];
+            formType?: ('contactForm' | 'requestServiceForm') | null;
+            enableTechnicalSupport?: boolean | null;
+            technicalSupportMedia?: string | Media | null;
+            technicalSupport: {
+              [k: string]: unknown;
+            }[];
+            enableLink?: boolean | null;
+            link?: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'media';
+                    value: string | Media;
+                  } | null);
+              url?: string | null;
+              label: string;
+              icon?: string | Media | null;
+              appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+            };
             enableContactInfo?: boolean | null;
             contactCards?:
               | {
@@ -438,6 +462,30 @@ export interface Post {
             introContent: {
               [k: string]: unknown;
             }[];
+            formType?: ('contactForm' | 'requestServiceForm') | null;
+            enableTechnicalSupport?: boolean | null;
+            technicalSupportMedia?: string | Media | null;
+            technicalSupport: {
+              [k: string]: unknown;
+            }[];
+            enableLink?: boolean | null;
+            link?: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'media';
+                    value: string | Media;
+                  } | null);
+              url?: string | null;
+              label: string;
+              icon?: string | Media | null;
+              appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+            };
             enableContactInfo?: boolean | null;
             contactCards?:
               | {
@@ -709,6 +757,30 @@ export interface Project {
             introContent: {
               [k: string]: unknown;
             }[];
+            formType?: ('contactForm' | 'requestServiceForm') | null;
+            enableTechnicalSupport?: boolean | null;
+            technicalSupportMedia?: string | Media | null;
+            technicalSupport: {
+              [k: string]: unknown;
+            }[];
+            enableLink?: boolean | null;
+            link?: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'media';
+                    value: string | Media;
+                  } | null);
+              url?: string | null;
+              label: string;
+              icon?: string | Media | null;
+              appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+            };
             enableContactInfo?: boolean | null;
             contactCards?:
               | {
@@ -987,6 +1059,30 @@ export interface Service {
             introContent: {
               [k: string]: unknown;
             }[];
+            formType?: ('contactForm' | 'requestServiceForm') | null;
+            enableTechnicalSupport?: boolean | null;
+            technicalSupportMedia?: string | Media | null;
+            technicalSupport: {
+              [k: string]: unknown;
+            }[];
+            enableLink?: boolean | null;
+            link?: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'media';
+                    value: string | Media;
+                  } | null);
+              url?: string | null;
+              label: string;
+              icon?: string | Media | null;
+              appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+            };
             enableContactInfo?: boolean | null;
             contactCards?:
               | {
@@ -1265,6 +1361,30 @@ export interface Blog {
             introContent: {
               [k: string]: unknown;
             }[];
+            formType?: ('contactForm' | 'requestServiceForm') | null;
+            enableTechnicalSupport?: boolean | null;
+            technicalSupportMedia?: string | Media | null;
+            technicalSupport: {
+              [k: string]: unknown;
+            }[];
+            enableLink?: boolean | null;
+            link?: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'media';
+                    value: string | Media;
+                  } | null);
+              url?: string | null;
+              label: string;
+              icon?: string | Media | null;
+              appearance?: ('default' | 'primary' | 'secondary' | 'teritary') | null;
+            };
             enableContactInfo?: boolean | null;
             contactCards?:
               | {
