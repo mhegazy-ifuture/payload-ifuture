@@ -1,3 +1,4 @@
+import { backgroundColor } from './../../fields/BackgroundColor/index';
 import { Block, Field } from "payload/types";
 import richText from "../../fields/richText";
 import link from "../../fields/link";
@@ -40,7 +41,7 @@ const contentFields: Field[] = [
 export const MediaContent: Block = {
   slug: "mediaContent",
   fields: [
-    {
+    backgroundColor, {
       name: "apperance",
       type: "radio",
       defaultValue:'vertical',

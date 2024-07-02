@@ -2,6 +2,7 @@ import type { Block, Field } from "payload/types";
 
 import link from "../../fields/link";
 import richText from "../../fields/richText";
+import { backgroundColor } from "../../fields/BackgroundColor";
 
 const cardFields: Field[] = [
   {
@@ -64,7 +65,7 @@ const cardFields: Field[] = [
 
 export const cardsContent: Block = {
   slug: "cardsContent",
-  fields: [
+  fields: [backgroundColor,
     {
       name: "columns",
       type: "array",

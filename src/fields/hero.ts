@@ -3,12 +3,15 @@ import richText from "./richText";
 import label from "./richText/label";
 import largeBody from "./richText/largeBody";
 import linkGroup from "./linkGroup";
+import { backgroundColor } from "./BackgroundColor";
 export const hero: Field = {
   name: "hero",
   type: "group",
 
   label: false,
   fields: [
+    backgroundColor
+    ,
     {
       type: "select",
       name: "type",

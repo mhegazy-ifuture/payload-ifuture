@@ -14,6 +14,7 @@ import { Posts } from "./collections/Posts";
 import { Services } from "./collections/_Services";
 import { Header } from "./globals/Header";
 import { Footer } from "./globals/Footer";
+import { Blogs } from "./collections/Blogs";
 
 export default buildConfig({
   admin: {
@@ -21,8 +22,8 @@ export default buildConfig({
     bundler: webpackBundler(),
   },
   editor: slateEditor({}),
-  globals:[Header ,Footer] ,
-  collections: [Users, Projects, Media,Pages ,Posts ,Services],
+  globals: [Header, Footer],
+  collections: [Users, Pages, Projects, Posts, Blogs, Services, Media],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
@@ -44,9 +45,7 @@ export default buildConfig({
         code: "ar",
       },
     ],
-    defaultLocale:'en' ,
-    fallback:true
+    defaultLocale: "en",
+    fallback: true,
   },
-
-  
 });

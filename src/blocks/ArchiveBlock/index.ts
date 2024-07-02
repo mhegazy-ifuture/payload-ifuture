@@ -1,6 +1,7 @@
 import type { Block } from 'payload/types'
 
 import richText from '../../fields/richText'
+import { backgroundColor } from '../../fields/BackgroundColor'
 
 export const Archive: Block = {
   slug: 'archive',
@@ -9,6 +10,7 @@ export const Archive: Block = {
     plural: 'Archives',
   },
   fields: [
+    backgroundColor,
     richText({
       name: 'introContent',
       label: 'Intro Content',
@@ -84,7 +86,7 @@ export const Archive: Block = {
         description: 'This field is auto-populated after-read',
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
       },
-    },
+    }
     
   ],
 }
