@@ -134,6 +134,7 @@ export interface Page {
             blockType: 'cardsContent';
           }
         | {
+            backgroundColor?: ('161616' | 'FAFAFA' | 'FFFFFF' | '000937') | null;
             enableIntroContent?: boolean | null;
             introContent: {
               [k: string]: unknown;
@@ -458,6 +459,7 @@ export interface Post {
             blockType: 'cardsContent';
           }
         | {
+            backgroundColor?: ('161616' | 'FAFAFA' | 'FFFFFF' | '000937') | null;
             enableIntroContent?: boolean | null;
             introContent: {
               [k: string]: unknown;
@@ -753,6 +755,7 @@ export interface Project {
             blockType: 'cardsContent';
           }
         | {
+            backgroundColor?: ('161616' | 'FAFAFA' | 'FFFFFF' | '000937') | null;
             enableIntroContent?: boolean | null;
             introContent: {
               [k: string]: unknown;
@@ -1055,6 +1058,7 @@ export interface Service {
             blockType: 'cardsContent';
           }
         | {
+            backgroundColor?: ('161616' | 'FAFAFA' | 'FFFFFF' | '000937') | null;
             enableIntroContent?: boolean | null;
             introContent: {
               [k: string]: unknown;
@@ -1357,6 +1361,7 @@ export interface Blog {
             blockType: 'cardsContent';
           }
         | {
+            backgroundColor?: ('161616' | 'FAFAFA' | 'FFFFFF' | '000937') | null;
             enableIntroContent?: boolean | null;
             introContent: {
               [k: string]: unknown;

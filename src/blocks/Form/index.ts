@@ -2,6 +2,7 @@ import type { Block } from "payload/types";
 
 import richText from "../../fields/richText";
 import link from "../../fields/link";
+import { backgroundColor } from "../../fields/BackgroundColor";
 
 export const FormBlock: Block = {
   slug: "formBlock",
@@ -10,6 +11,7 @@ export const FormBlock: Block = {
     plural: "Form Blocks",
   },
   fields: [
+    backgroundColor,
     {
       name: "enableIntroContent",
       label: "Enable Intro Content",
@@ -40,8 +42,7 @@ export const FormBlock: Block = {
       label: "Enable Technical Support",
       type: "checkbox",
     },
-{
-  label:"Technical Support",
+{ label:"Technical Support",
   type:'collapsible',
   admin: {
     condition: (_, { enableTechnicalSupport }) =>
