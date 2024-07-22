@@ -15,6 +15,7 @@ import { Services } from "./collections/_Services";
 import { Header } from "./globals/Header";
 import { Footer } from "./globals/Footer";
 import { Blogs } from "./collections/Blogs";
+import Categories from "./collections/Categories";
 
 export default buildConfig({
   admin: {
@@ -23,7 +24,7 @@ export default buildConfig({
   },
   editor: slateEditor({}),
   globals: [Header, Footer],
-  collections: [Users, Pages, Projects, Posts, Blogs, Services, Media],
+  collections: [Users, Pages, Projects, Posts, Blogs, Services, Categories,Media],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

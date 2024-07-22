@@ -42,6 +42,16 @@ export const Posts: CollectionConfig = {
       required: true,
     },
     {
+      name: 'categories',
+      localized:true,
+      type: 'relationship',
+      relationTo: 'categories',
+      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: "media",
       maxDepth: 5,
       type: "upload",

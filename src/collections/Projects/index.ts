@@ -30,6 +30,16 @@ export const Projects: CollectionConfig = {
     { name: "title", localized: true, type: "text", required: true },
     { name: "publishedAt", type: "date", admin: { position: "sidebar" } },
     {
+      name: 'categories',
+      localized:true,
+      type: 'relationship',
+      relationTo: 'categories',
+      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
       name: "media",
       maxDepth: 5,
       type: "upload",

@@ -14,6 +14,7 @@ export interface Config {
     posts: Post;
     blogs: Blog;
     services: Service;
+    categories: Category;
     media: Media;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -224,8 +225,10 @@ export interface Page {
             introContent: {
               [k: string]: unknown;
             }[];
+            displayedAs?: ('slider' | 'grid') | null;
             populateBy?: ('collection' | 'selection') | null;
-            relationTo?: ('posts' | 'projects' | 'services') | null;
+            relationTo?: ('posts' | 'projects' | 'services' | 'blogs') | null;
+            categories?: (string | Category)[] | null;
             limit?: number | null;
             selectedDocs?:
               | (
@@ -366,6 +369,7 @@ export interface Media {
 export interface Post {
   id: string;
   title: string;
+  categories?: (string | Category)[] | null;
   media: string | Media;
   publishedAt?: string | null;
   authors?: (string | User)[] | null;
@@ -549,8 +553,10 @@ export interface Post {
             introContent: {
               [k: string]: unknown;
             }[];
+            displayedAs?: ('slider' | 'grid') | null;
             populateBy?: ('collection' | 'selection') | null;
-            relationTo?: ('posts' | 'projects' | 'services') | null;
+            relationTo?: ('posts' | 'projects' | 'services' | 'blogs') | null;
+            categories?: (string | Category)[] | null;
             limit?: number | null;
             selectedDocs?:
               | (
@@ -664,12 +670,23 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: string;
+  title?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
  */
 export interface Project {
   id: string;
   title: string;
   publishedAt?: string | null;
+  categories?: (string | Category)[] | null;
   media: string | Media;
   hero: {
     backgroundColor?: ('161616' | 'FAFAFA' | 'FFFFFF' | '000937') | null;
@@ -845,8 +862,10 @@ export interface Project {
             introContent: {
               [k: string]: unknown;
             }[];
+            displayedAs?: ('slider' | 'grid') | null;
             populateBy?: ('collection' | 'selection') | null;
-            relationTo?: ('posts' | 'projects' | 'services') | null;
+            relationTo?: ('posts' | 'projects' | 'services' | 'blogs') | null;
+            categories?: (string | Category)[] | null;
             limit?: number | null;
             selectedDocs?:
               | (
@@ -964,6 +983,7 @@ export interface Project {
 export interface Service {
   id: string;
   title: string;
+  categories?: (string | Category)[] | null;
   media: string | Media;
   projects?: (string | Project)[] | null;
   publishedAt?: string | null;
@@ -1148,8 +1168,10 @@ export interface Service {
             introContent: {
               [k: string]: unknown;
             }[];
+            displayedAs?: ('slider' | 'grid') | null;
             populateBy?: ('collection' | 'selection') | null;
-            relationTo?: ('posts' | 'projects' | 'services') | null;
+            relationTo?: ('posts' | 'projects' | 'services' | 'blogs') | null;
+            categories?: (string | Category)[] | null;
             limit?: number | null;
             selectedDocs?:
               | (
@@ -1268,6 +1290,7 @@ export interface Service {
 export interface Blog {
   id: string;
   title: string;
+  categories?: (string | Category)[] | null;
   media: string | Media;
   publishedAt?: string | null;
   authors?: (string | User)[] | null;
@@ -1451,8 +1474,10 @@ export interface Blog {
             introContent: {
               [k: string]: unknown;
             }[];
+            displayedAs?: ('slider' | 'grid') | null;
             populateBy?: ('collection' | 'selection') | null;
-            relationTo?: ('posts' | 'projects' | 'services') | null;
+            relationTo?: ('posts' | 'projects' | 'services' | 'blogs') | null;
+            categories?: (string | Category)[] | null;
             limit?: number | null;
             selectedDocs?:
               | (
