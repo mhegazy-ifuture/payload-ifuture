@@ -28,6 +28,9 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
+    - name: Install yarn
+      run: npm install yarn
+    
     - name: build the server
       run: npm run build
     - name: run the server
