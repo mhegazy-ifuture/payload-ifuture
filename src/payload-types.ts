@@ -1688,5 +1688,6 @@ export interface Footer {
 
 
 declare module 'payload' {
+  // @ts-ignore
   export interface GeneratedTypes extends Config {}
 }
