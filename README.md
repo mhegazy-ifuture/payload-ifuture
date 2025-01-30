@@ -40,3 +40,11 @@ The easiest way to deploy your project is to use [Payload Cloud](https://payload
 ## Questions
 
 If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+
+## Project Design
+
+This project is based on the blank template from [Payload](https://payloadcms.com), a [headless CMS](https://payloadcms.com/docs/overview/architecture) built on top of [Node.js](https://nodejs.org/en/). Payload provides a [REST API](https://payloadcms.com/docs/rest-api/overview) to access all collections you define, allowing you to easily integrate it with your frontend of choice.
+
+For more information on how to use Payload, check out the [docs](https://payloadcms.com/docs/overview/getting-started). If you're new to Payload, I recommend starting with the [getting started guide](https://payloadcms.com/docs/overview/getting-started).
+
+To get a better understanding of the codebase, I recommend watching the [video tutorial](https://youtu.be/3JUsg-WsU9o?si=me3_1gOISNBOBe4h) by [JavaScript Mastery](https://www.youtube.com/channel/UCmXmlB34gHXPQwVMXzVLvVg). The tutorial explains how to create a blog using Payload, and provides a great introduction to the project structure and how it all fits together.
